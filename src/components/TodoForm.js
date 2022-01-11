@@ -1,16 +1,16 @@
 import { useState} from 'react';
-import List from './List'
 import FormContent from './FormContent';
+import '../index.css'
 
 export default function TodoForm() {
     const [newTodo, setNewTodo] = useState('');
     const [todoList, setTodoList] = useState([]);
-
     return (
         <>
-        <h1>TODO App</h1>
-        <FormContent todoList={todoList} newTodo={newTodo} setNewTodo={setNewTodo} setTodoList={setTodoList}/>
-        <List list={todoList}/>
+        <div className="container" style={{}}>
+        <h1 className='head' >TODO App</h1>
+        <FormContent  todoList={todoList} newTodo={newTodo} setNewTodo={setNewTodo} setTodoList={setTodoList}/>
+        </div>
         </>
     );
 }
