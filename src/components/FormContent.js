@@ -1,7 +1,7 @@
 import { useCallback } from "react";
-import '../index.css'
-export default function FormContent(props){
+import '../index.css';
 
+export default function FormContent(props){
     const formSubmit = useCallback(
         (event) => {
         event.preventDefault();
