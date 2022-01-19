@@ -1,8 +1,8 @@
 import React from 'react';
 
 function Pomodoro() {
-  return <div>
-      <h1>LOL</h1>
+  return <div className='container'> 
+      <h1>OLO</h1>
   </div>;
 }
 
