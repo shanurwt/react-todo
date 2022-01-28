@@ -10,8 +10,8 @@ const [tick, setTick] = useState(true);
   <>
   <div >
 
-    <button onClick={()=>{setTick(false)}}>Todo</button>
-    <button onClick={()=>{setTick(true)}}>Pomodoro</button>
+    <button onClick={()=>{setTick(false)}}>Pomodoro</button>
+    <button onClick={()=>{setTick(true)}}>Todo</button>
       {tick && <TodoForm className='form' /> }
       {tick===false && <Pomodoro /> }
 
