@@ -38,3 +38,11 @@ body {
 .done{
   text-decoration: line-through;
 }
+.sec{
+  background-color: blueviolet;
+  border:4px solid;
+  
+}
+.container{
+  background-color: blueviolet;
+}

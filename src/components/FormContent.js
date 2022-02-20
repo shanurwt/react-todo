@@ -1,7 +1,21 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useRef } from "react";
+import {gsap} from "gsap";
 import '../index.css';
 
+
 export default function FormContent(props){
+
+    const lol = useRef();
+    useEffect(()=>{
+        gsap.timeline()
+        .from("l-items", {
+            xPercent:100,
+            ease:"back",
+            duration:3,
+        });
+        console.log(lol.current);
+    })
+
     const formSubmit = useCallback(
         (event) => {
         event.preventDefault();
@@ -27,14 +41,14 @@ export default function FormContent(props){
     return(
         <>
             <form className="form" onSubmit={formSubmit}>
-                <label htmlFor="">Enter a Fresh TODO</label>
+                <label >Enter a Fresh TODO</label>
                 <input type="text" value={props.newTodo} onChange={(e)=> props.setNewTodo(e.target.value)}/>
             </form>
-
+            
             <ul className="list">
                 {props.todoList.map((tod,ind) => (
-                    <li className="l-items" key={tod.id}>
-                         <input type="checkbox" checked={tod.done} onChange={done(tod,ind)}/> 
+                    <li className="l-items" key={tod.id} ref={lol}>
+                         <input type="checkbox" checked={tod.done} onChange={done(tod,ind)}/>
                          <span className={tod.done?'done':''}>{tod.content}</span>
                          </li>
                 ))}

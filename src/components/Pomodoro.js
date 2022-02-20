@@ -1,28 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import '../index.css'
+
+
 
 export default function Pomodoro() {
 
-  const Employee = [
-    {name: "Parker Green",},
-    {name: "Jordan Richards",},
-    {name: "Alex Stevens",},
-    {name: "Avery Scott"},
-  ];
-  const [search, setSearch] = useState('LOL');
-  console.log(search);
+  const boxRef = useRef();
+ 
+useEffect(() => {
+  
+  gsap.timeline()
+    .from(boxRef.current, {
+      xPercent:100,
+      duration: 2,
+      rotate:"+=360"
+    })
+    .from((".sec"),{
+      x:100,
+      duration: 1,
+      ease:"back.in",
+    })
+});
+
+
+  
   return( 
-  <div className='container'> 
-      <input type="text" onChange={(e)=> setSearch(e.target.value)}/>
-      <ul>
-      {Employee.map((emp => {
-        if(emp.name.toLowerCase().includes(search)){
-          return <li key={emp.name}>{emp.name}</li>
-        }
-      })
-      )}
-      </ul>
-      <h1>Pomodoro</h1>
-      <button onClick={()=> setSearch('st')}>Search steve</button>
+  <div className='container' > 
+      <h1 ref={boxRef}>LOL</h1>
+      <h1 className='sec'>LOL</h1>
   </div>
   );
 }
