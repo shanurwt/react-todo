@@ -9,8 +9,10 @@ export default function TodoForm() {
         <>
         <div className="container" style={{}}>
         <h1 className='head' >TODO App</h1>
-        <FormContent  todoList={todoList} newTodo={newTodo} setNewTodo={setNewTodo} setTodoList={setTodoList}/>
+        <FormContent  todoList={todoList} newTodo={newTodo} 
+        setNewTodo={setNewTodo} setTodoList={setTodoList}/>
         </div>
+        
         </>
     );
 }

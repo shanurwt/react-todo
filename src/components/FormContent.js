@@ -4,17 +4,17 @@ import '../index.css';
 
 
 export default function FormContent(props){
-
     const lol = useRef();
     useEffect(()=>{
         gsap.timeline()
-        .from("l-items", {
-            xPercent:100,
+        .from(lol.current, {
+            x:80,
             ease:"back",
-            duration:3,
+            duration:1,
         });
         console.log(lol.current);
-    })
+        console.log(props.todoList);
+    },[props.todoList])
 
     const formSubmit = useCallback(
         (event) => {
@@ -31,21 +31,19 @@ export default function FormContent(props){
     const done= useCallback(
         (tod,ind) => (event) => {
         const newTodos = [...props.todoList];
-        newTodos.splice(ind, 1, {
-            ...tod,
-            done:!tod.done
-        });
+        newTodos.splice(ind, 1);
         props.setTodoList(newTodos);
     },[props])
 
     return(
         <>
+
             <form className="form" onSubmit={formSubmit}>
                 <label >Enter a Fresh TODO</label>
                 <input type="text" value={props.newTodo} onChange={(e)=> props.setNewTodo(e.target.value)}/>
             </form>
-            
-            <ul className="list">
+
+            <ul className="list" >
                 {props.todoList.map((tod,ind) => (
                     <li className="l-items" key={tod.id} ref={lol}>
                          <input type="checkbox" checked={tod.done} onChange={done(tod,ind)}/>
