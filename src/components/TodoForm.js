@@ -12,7 +12,6 @@ export default function TodoForm() {
         <FormContent  todoList={todoList} newTodo={newTodo} 
         setNewTodo={setNewTodo} setTodoList={setTodoList}/>
         </div>
-        
         </>
     );
 }
