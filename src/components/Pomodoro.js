@@ -5,7 +5,7 @@ import SettingsContext from './SettingsContext';
 
 
 export default function Pomodoro() {
-  const [showSettings, setShowSettings] = useState(true)
+  const [showSettings, setShowSettings] = useState(false)
   const [workMinutes, setWorkMinutes] = useState(45);
   const [breakMinutes, setBreakMinutes] = useState(15);
   return( 
@@ -15,6 +15,8 @@ export default function Pomodoro() {
       breakMinutes: breakMinutes,
       setWorkMinutes,
       setBreakMinutes,
+      showSettings,
+      setShowSettings,
     }}>
     {showSettings ? <Settings /> : <Timer />}
     </SettingsContext.Provider>
