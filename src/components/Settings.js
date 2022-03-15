@@ -6,12 +6,18 @@ import BackButton from './BackButton'
 
 
 function Settings(){
-    const settingsInfo = useContext(SettingsContext);
+
+    // useContext hook will accept the context object(SettingsContext) and returns current context value
+    // value is determined by value props of nearest Context.Provider (SettingsContext.Provider)
+    // if nearest Context.Provider updates, hook will re-render with latest value
+
+    const settingsInfo = useContext(SettingsContext); // useContext Hook
+
     return(
         <div className="">
             <label >work minutes: {settingsInfo.workMinutes}:00</label>
-            {/* react slider will provide a slider to set
-            minutes  */}
+            {/* React Slider will provide a slider to set minutes of Work*/}
+
             <ReactSlider
             className={'slider'}
             thumbClassName={'thumb'}
@@ -24,6 +30,7 @@ function Settings(){
 
             <label >break minutes: {settingsInfo.breakMinutes}:00</label>
 
+            {/* Slider for break Minutes*/}
             <ReactSlider
             className={'slider green'}
             thumbClassName={'thumb'}
@@ -33,7 +40,6 @@ function Settings(){
             min={1}
             max={120}
             />
-
             <BackButton onClick={ ()=> settingsInfo.setShowSettings(false)} />
         </div>
     )
