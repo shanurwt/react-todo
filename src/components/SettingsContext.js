@@ -1,3 +1,7 @@
 import React from 'react';
-const SettingsContext = React.createContext({});
+
+//Context object created with initial/default value nothing, 
+//it will read current context value from closest matching Provider
+
+const SettingsContext = React.createContext({}); 
 export default SettingsContext;

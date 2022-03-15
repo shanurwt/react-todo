@@ -5,14 +5,19 @@ import SettingsContext from './SettingsContext';
 
 
 export default function Pomodoro() {
-  const [showSettings, setShowSettings] = useState(false)
-  const [workMinutes, setWorkMinutes] = useState(45);
+  const [showSettings, setShowSettings] = useState(false) // if settings button is true then change showSettings to 
+  const [workMinutes, setWorkMinutes] = useState(45); // initial work and break minutes
   const [breakMinutes, setBreakMinutes] = useState(15);
-  return( 
+  return(
   <div className='container' >
-    <SettingsContext.Provider value={{
-      workMinutes: workMinutes,
-      breakMinutes: breakMinutes,
+    {/* Provider component comes with every Context Object, 
+    The value prop is passed so that the descendants of this Provider can 
+    consume all the values. 
+    Whenever Provide value prop changes the Descendants will re-render*/}
+    <SettingsContext.Provider value={{ 
+      // All global values of Pomodoro tree
+      workMinutes, 
+      breakMinutes,
       setWorkMinutes,
       setBreakMinutes,
       showSettings,

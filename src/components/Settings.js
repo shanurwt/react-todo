@@ -3,6 +3,8 @@ import './slider.css'
 import SettingsContext from './SettingsContext';
 import {useContext} from 'react'
 import BackButton from './BackButton'
+
+
 function Settings(){
     const settingsInfo = useContext(SettingsContext);
     return(
