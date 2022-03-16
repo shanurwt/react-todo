@@ -1,4 +1,5 @@
-// import './pomodoro.css'
+
+// props are the objects and ... spread operator is used to take all values of props (an object)
 function BackButton(props){
     return(
         <button {...props} className="play-btn">

@@ -10,12 +10,13 @@ import SettingsContext from './SettingsContext';
 const red='#f54e4e';
 const green = '#4aec8c';
 
+
 function Timer() {
     const settingsInfo = useContext(SettingsContext);
   
-    const [isPaused, setIsPaused] = useState(true);
-    const [mode, setMode] = useState('work'); // work/break/null
-    const [secondsLeft, setSecondsLeft] = useState(0);
+    const [isPaused, setIsPaused] = useState(true); // for pause and play button
+    const [mode, setMode] = useState('work'); // mode for work and break minutes
+    const [secondsLeft, setSecondsLeft] = useState(0); // to show the seconds repeat after 60
   
     const secondsLeftRef = useRef(secondsLeft);
     const isPausedRef = useRef(isPaused);
@@ -53,7 +54,7 @@ function Timer() {
             }
       
             tick();
-          },1000);
+          },10);
 
         return () => clearInterval(interval);
       
@@ -70,6 +71,7 @@ function Timer() {
     
     return (
         <div className="">
+          {/* The round progress bar from package */}
             <CircularProgressbar
                 value={percentage}
                 text={minutes + ':' + seconds}
@@ -78,7 +80,11 @@ function Timer() {
                 pathColor:mode === 'work' ? red : green,
                 tailColor:'rgba(255,255,255,.2)',
             })} />
+
+            {/* Inside div Play/Pause button and setting button */}
             <div className="">
+
+              {/* If is Paused is true then show PlayButton otherwise show PauseButton */}
             {isPaused
                 ? <PlayButton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
                 : <PauseButton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />}
