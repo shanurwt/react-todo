@@ -17,7 +17,11 @@ function Timer() {
     const [isPaused, setIsPaused] = useState(true); // for pause and play button
     const [mode, setMode] = useState('work'); // mode for work and break minutes
     const [secondsLeft, setSecondsLeft] = useState(0); // to show the seconds repeat after 60
-  
+
+
+    // using useRef hook because it doesn't re-render after change and 
+    // useRef returns an object {current:0} ;;is set to 0 if initial vale is 0
+    // 
     const secondsLeftRef = useRef(secondsLeft);
     const isPausedRef = useRef(isPaused);
     const modeRef = useRef(mode);
