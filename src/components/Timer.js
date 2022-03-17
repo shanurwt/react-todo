@@ -33,7 +33,9 @@ function Timer() {
 
 
     useEffect(() => {
-       
+
+        // this function will switch the mode from work to break and vice versa
+        // it will also set the nextSeconds
         function switchMode() {
             const nextMode = modeRef.current === 'work' ? 'break' : 'work';
             const nextSeconds = (nextMode === 'work' ? settingsInfo.workMinutes : settingsInfo.breakMinutes) * 60;
@@ -48,6 +50,7 @@ function Timer() {
           secondsLeftRef.current = settingsInfo.workMinutes * 60;
           setSecondsLeft(secondsLeftRef.current);
 
+          
           const interval = setInterval(() => {
             if (isPausedRef.current) {
               return;
