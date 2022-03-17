@@ -21,20 +21,19 @@ function Timer() {
 
     // using useRef hook because it doesn't re-render after change and 
     // useRef returns an object {current:0} ;;is set to 0 if initial vale is 0
-    // 
+    // we can only access current value of useRef
     const secondsLeftRef = useRef(secondsLeft);
     const isPausedRef = useRef(isPaused);
     const modeRef = useRef(mode);
   
+    // after every 1 second decrease the secondsLeft by 1 and don't re-render
     function tick() {
-      secondsLeftRef.current--;
-      setSecondsLeft(secondsLeftRef.current);
+      setSecondsLeft(secondsLeftRef.current--);
     }
 
 
     useEffect(() => {
        
-
         function switchMode() {
             const nextMode = modeRef.current === 'work' ? 'break' : 'work';
             const nextSeconds = (nextMode === 'work' ? settingsInfo.workMinutes : settingsInfo.breakMinutes) * 60;
@@ -58,15 +57,13 @@ function Timer() {
             }
       
             tick();
-          },10);
+          },1000);
 
         return () => clearInterval(interval);
       
     }, [settingsInfo]);
 
-    const totalSeconds = mode === 'work'
-    ? settingsInfo.workMinutes * 60
-    : settingsInfo.breakMinutes * 60;
+    const totalSeconds = mode === 'work' ? settingsInfo.workMinutes * 60 : settingsInfo.breakMinutes * 60;
     const percentage = Math.round(secondsLeft / totalSeconds * 100);
 
     const minutes = Math.floor(secondsLeft / 60);
@@ -76,6 +73,7 @@ function Timer() {
     return (
         <div className="">
           {/* The round progress bar from package */}
+            
             <CircularProgressbar
                 value={percentage}
                 text={minutes + ':' + seconds}
@@ -89,13 +87,17 @@ function Timer() {
             <div className="">
 
               {/* If is Paused is true then show PlayButton otherwise show PauseButton */}
-            {isPaused
-                ? <PlayButton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
-                : <PauseButton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />}
+
+              {/* used Ref.current because if useState change it will lead to re-render and we only want to change the button */}
+              {isPaused
+                  ? <PlayButton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
+                  : <PauseButton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />}
             </div>
+
+            {/* SettingsButton show the setting and change the value of setShowSettings (a global variable of context api) */}
             <div className="">
-                <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
-            </div>
+              <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
+            </div> 
             
         </div>
     );
