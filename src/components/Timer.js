@@ -22,15 +22,19 @@ function Timer() {
     // using useRef hook because it doesn't re-render after change and 
     // useRef returns an object {current:0} ;;is set to 0 if initial vale is 0
     // we can only access current value of useRef
-    const secondsLeftRef = useRef(secondsLeft);
     const isPausedRef = useRef(isPaused);
     const modeRef = useRef(mode);
+    const secondsLeftRef = useRef(secondsLeft);
   
     // after every 1 second decrease the secondsLeft by 1 and don't re-render
     function tick() {
       setSecondsLeft(secondsLeftRef.current--);
     }
 
+    // with useEffect Hook we can perform side effects
+    // similar to componentDidMount and componentDidUpdate
+    // the function (aka 'effect') we have passed inside useEffect is called after performing Dom updates.
+    // if effect function returns function, React will run it when it's time to cleanup
 
     useEffect(() => {
 
@@ -50,11 +54,19 @@ function Timer() {
           secondsLeftRef.current = settingsInfo.workMinutes * 60;
           setSecondsLeft(secondsLeftRef.current);
 
+          // The setInterval() method calls a function at specified intervals (in milliseconds).
+          // The setInterval() method continues calling the function until clearInterval() is called, or the window is closed.
+          // 
           
           const interval = setInterval(() => {
+
+            // if the PausedRef is true it will return from function 
             if (isPausedRef.current) {
               return;
             }
+
+            // if secondsLeft becomes 0 then it will switch the mode
+            
             if (secondsLeftRef.current === 0) {
               return switchMode();
             }
@@ -62,8 +74,12 @@ function Timer() {
             tick();
           },1000);
 
+        // cleanup function (it will clean )
         return () => clearInterval(interval);
       
+
+        // settingsInfo is second argument of useEffect
+        // second argument is an array
     }, [settingsInfo]);
 
     const totalSeconds = mode === 'work' ? settingsInfo.workMinutes * 60 : settingsInfo.breakMinutes * 60;
