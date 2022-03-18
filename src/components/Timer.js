@@ -6,7 +6,7 @@ import SettingsButton from './SettingsButton'
 import {useContext , useState, useEffect, useRef} from 'react'
 import SettingsContext from './SettingsContext';
 
-
+// color for work and break minutes
 const red='#f54e4e';
 const green = '#4aec8c';
 
@@ -60,26 +60,26 @@ function Timer() {
           
           const interval = setInterval(() => {
 
-            // if the PausedRef is true it will return from function 
+            // if the PausedRef is true it will return nothing from function 
             if (isPausedRef.current) {
               return;
             }
 
             // if secondsLeft becomes 0 then it will switch the mode
-            
+
             if (secondsLeftRef.current === 0) {
               return switchMode();
             }
       
             tick();
           },1000);
-
+          
         // cleanup function (it will clean )
         return () => clearInterval(interval);
-      
 
-        // settingsInfo is second argument of useEffect
+        // settingsInfo is second argument of useEffect (an array)
         // second argument is an array
+        // if settingsInfo got changed the useEffect will run
     }, [settingsInfo]);
 
     const totalSeconds = mode === 'work' ? settingsInfo.workMinutes * 60 : settingsInfo.breakMinutes * 60;
