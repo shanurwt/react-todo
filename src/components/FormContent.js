@@ -18,6 +18,13 @@ export default function FormContent(props){
         });
     },[props.todoList])
 
+    // useCallback returns a memoized callback
+    // useMemo returns a memoized value
+    // useCallBack gives referential equality between renders for functions
+    // useMemo gives  referential equality between renders for values
+    // useCallBack returns  function uncalled so you can call it later
+    // useMemo calls its function and returns the result.
+
     const formSubmit = useCallback(
         (event) => {
         event.preventDefault();
@@ -30,6 +37,7 @@ export default function FormContent(props){
         props.setNewTodo('');
     },[props]);
 
+    
     const done= useCallback(
         (tod,ind) => (event) => {
         const newTodos = [...props.todoList];
