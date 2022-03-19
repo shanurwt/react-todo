@@ -13,7 +13,7 @@ function Settings(){
     const settingsInfo = useContext(SettingsContext); // useContext Hook
 
     return(
-        <div className="">
+        <div className="lol">
             <label >work minutes: {settingsInfo.workMinutes}:00</label>
             {/* React Slider will provide a slider to set minutes of Work*/}
 

@@ -103,7 +103,7 @@ function Timer() {
             })} />
 
             {/* Inside div Play/Pause button and setting button */}
-            <div className="">
+            <div className="timer-settings">
 
               {/* If is Paused is true then show PlayButton otherwise show PauseButton */}
 
@@ -111,10 +111,10 @@ function Timer() {
               {isPaused
                   ? <PlayButton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
                   : <PauseButton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />}
-            </div>
+            
 
             {/* SettingsButton show the setting and change the value of setShowSettings (a global variable of context api) */}
-            <div className="">
+        
               <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
             </div> 
             

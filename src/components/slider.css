@@ -2,6 +2,7 @@
     height:40px;
     border: 2px solid red;
     border-radius: 20px;
+    margin-top: 10px;
 }
 
 .thumb{
@@ -23,4 +24,13 @@
     width:40px;
     height:40px;
     border-radius: 20px;
+}
+.lol{
+    margin-top: 40px;
+}
+.backbtn{
+    margin-left: 15px;
+}
+.timer-settings{
+    display: flex;
 }
