@@ -28,8 +28,8 @@ export default function FormContent(props){
     
     const formSubmit = useCallback(
         (event) => {
+        //  it will not refresh the page after submitting the form
         event.preventDefault();
-        console.log('jhap');
         // if newTodo is empty it will return nothing
         if (!props.newTodo.trim()) return
         // adding the new todo in todoList
@@ -45,7 +45,7 @@ export default function FormContent(props){
     },[props]);
 
 
-    const done= useCallback(
+    const done = useCallback(
         (ind) => () => {
         // copy the todoList in newTodos
         const newTodos = [...props.todoList];
