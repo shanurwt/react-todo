@@ -34,3 +34,18 @@ body {
   border: 5px solid #feb062;
   border-radius: 10px;
 }
+
+.selec-btn{
+  margin: 10vh;
+  margin-bottom: -5vh;
+  margin-left: 40%;
+}
+
+.selec-btn > button{
+  height: 30px;
+  width: 100px;
+  background-color: #feb062;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 14px;
+}
