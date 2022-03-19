@@ -29,20 +29,31 @@ export default function FormContent(props){
     const formSubmit = useCallback(
         (event) => {
         event.preventDefault();
-        if (!props.newTodo.trim()) return;
+        console.log('jhap');
+        // if newTodo is empty it will return nothing
+        if (!props.newTodo.trim()) return
+        // adding the new todo in todoList
         props.setTodoList([{
-          id:props.todoList.length ? props.todoList[0].id+1: 1,
+            // if length of array is 0 put the id 1 otherwise +1 of previous
+          id: props.todoList.length ? props.todoList[0].id+1: 1,
           content: props.newTodo,
           done: false,
+        //   add the rest of todoList after this
         }, ...props.todoList]);
+        // make the newTodo empty after submitting
         props.setNewTodo('');
     },[props]);
 
 
     const done= useCallback(
-        (tod,ind) => (event) => {
+        (ind) => () => {
+        // copy the todoList in newTodos
         const newTodos = [...props.todoList];
+        // splice method overwrites original array
+        // splice syntax = array.splice(index, howmany, item1,item2,...)
+        //howmany will tell no. of items to remove
         newTodos.splice(ind, 1);
+        // update the changed array
         props.setTodoList(newTodos);
     },[props])
 
@@ -58,12 +69,15 @@ export default function FormContent(props){
             <ul className="list" >
                 {/* Map object holds key-value pairs and remembers the original order of insertion of keys */}
                 {/* Map iterates its element in insertion order, a for...of loop returns an array of [key,value] for each iteration */}
-                {/* tod=key and ind=value */}
+                {/* tod=elements of todoList and ind=index of  */}
                 {props.todoList.map((tod,ind) => (
-                    // console.log(tod,ind)
+                    // tod.id is used for the key and ref argument is for animation (gsap)
                     <li className="l-items" key={tod.id} ref={lol}>
-                        <input type="checkbox" checked={tod.done} onChange={done(tod,ind)}/>
-                        <span className={tod.done?'done':''}>{tod.content}</span>
+                        {/* the checkbox to delete elements */}
+                        {/* onChange the done function is called and func will make newTodo after deleting it */}
+                        <input type="checkbox" checked={tod.done} onChange={done(ind)}/>
+                        {/* to show the contents of todoList */}
+                        <span >{tod.content}</span>
                     </li>
                 ))}
             </ul>
