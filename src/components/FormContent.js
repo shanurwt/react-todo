@@ -4,16 +4,18 @@ import '../index.css';
 
 
 export default function FormContent(props){
+    // lol is a ref and can be used t target DOM elements
     const lol = useRef();
+    // useEffect will render when todo are added in todoList
     useEffect(()=>{
+        // timeline can be added with .from and .to
+        // .from and .to takes 2 parameters a ref(Dom element) and effects/changes
         gsap.timeline()
         .from(lol.current, {
             x:80,
             ease:"back",
             duration:1,
         });
-        console.log(lol.current);
-        console.log(props.todoList);
     },[props.todoList])
 
     const formSubmit = useCallback(
@@ -37,7 +39,6 @@ export default function FormContent(props){
 
     return(
         <>
-
             <form className="form" onSubmit={formSubmit}>
                 <label >Enter a Fresh TODO</label>
                 <input type="text" value={props.newTodo} onChange={(e)=> props.setNewTodo(e.target.value)}/>
@@ -46,9 +47,9 @@ export default function FormContent(props){
             <ul className="list" >
                 {props.todoList.map((tod,ind) => (
                     <li className="l-items" key={tod.id} ref={lol}>
-                         <input type="checkbox" checked={tod.done} onChange={done(tod,ind)}/>
-                         <span className={tod.done?'done':''}>{tod.content}</span>
-                         </li>
+                        <input type="checkbox" checked={tod.done} onChange={done(tod,ind)}/>
+                        <span className={tod.done?'done':''}>{tod.content}</span>
+                    </li>
                 ))}
             </ul>
         </>

@@ -6,7 +6,6 @@ import BackButton from './BackButton'
 
 
 function Settings(){
-
     // useContext hook will accept the context object(SettingsContext) and returns current context value
     // value is determined by value props of nearest Context.Provider (SettingsContext.Provider)
     // if nearest Context.Provider updates, hook will re-render with latest value

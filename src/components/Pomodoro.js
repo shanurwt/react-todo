@@ -8,7 +8,6 @@ export default function Pomodoro() {
   const [showSettings, setShowSettings] = useState(false) // to show the settings menu 
   const [workMinutes, setWorkMinutes] = useState(45); // initial work and break minutes
   const [breakMinutes, setBreakMinutes] = useState(15);
-  
   return(
   <div className='container' >
     {/* Provider component comes with every Context Object, 
