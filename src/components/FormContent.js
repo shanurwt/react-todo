@@ -4,7 +4,8 @@ import '../index.css';
 
 
 export default function FormContent(props){
-    // lol is a ref and can be used t target DOM elements
+    
+    // lol is a ref and is used to target DOM elements
     const lol = useRef();
     // useEffect will render when todo are added in todoList
     useEffect(()=>{
@@ -16,7 +17,7 @@ export default function FormContent(props){
             ease:"back",
             duration:1,
         });
-    },[props.todoList])
+    },[props.todoList]);
 
     // useCallback returns a memoized callback
     // useMemo returns a memoized value
@@ -24,7 +25,7 @@ export default function FormContent(props){
     // useMemo gives  referential equality between renders for values
     // useCallBack returns  function uncalled so you can call it later
     // useMemo calls its function and returns the result.
-
+    
     const formSubmit = useCallback(
         (event) => {
         event.preventDefault();
@@ -37,7 +38,7 @@ export default function FormContent(props){
         props.setNewTodo('');
     },[props]);
 
-    
+
     const done= useCallback(
         (tod,ind) => (event) => {
         const newTodos = [...props.todoList];
@@ -47,13 +48,19 @@ export default function FormContent(props){
 
     return(
         <>
+        {/* when form is submitted formSubmit() is called  */}
             <form className="form" onSubmit={formSubmit}>
                 <label >Enter a Fresh TODO</label>
+                {/* the value changed on input is stored in newTodo by event.target.value */}
                 <input type="text" value={props.newTodo} onChange={(e)=> props.setNewTodo(e.target.value)}/>
             </form>
-
+        {/* to show the list of tasks */}
             <ul className="list" >
+                {/* Map object holds key-value pairs and remembers the original order of insertion of keys */}
+                {/* Map iterates its element in insertion order, a for...of loop returns an array of [key,value] for each iteration */}
+                {/* tod=key and ind=value */}
                 {props.todoList.map((tod,ind) => (
+                    // console.log(tod,ind)
                     <li className="l-items" key={tod.id} ref={lol}>
                         <input type="checkbox" checked={tod.done} onChange={done(tod,ind)}/>
                         <span className={tod.done?'done':''}>{tod.content}</span>
