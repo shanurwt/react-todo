@@ -3,6 +3,8 @@ body {
   font-family: zillaslab, palatino, "Palatino Linotype", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #feb062;
+  background-color: #575151;
 }
 .head {
   font-size: 41px;
@@ -10,8 +12,6 @@ body {
 .container {
   margin-left: 470px;
   margin-top: 100px;
-  /* border: 3px solid black; */
-  /* background-color: bisque; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,27 +21,16 @@ body {
 
 .form {
   font-size: 25px;
-  /* background-color: bisque; */
 }
 
-.list {
-  /* margin-left: -100px; */
-  /* border: 3px solid black; */
-  /* background-color: aqua; */
-}
 .l-items {
   font-size: 28px;
   height: auto;
   width: 300px;
   margin-top: 10px;
 }
-.done {
-  text-decoration: line-through;
-}
-.sec {
-  background-color: blueviolet;
-  border: 4px solid;
-}
+
 .container {
-  background-color: blueviolet;
+  border: 5px solid #feb062;
+  border-radius: 10px;
 }
