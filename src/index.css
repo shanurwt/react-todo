@@ -39,14 +39,13 @@ body {
 .selec-btn{
   margin: 10vh;
   margin-bottom: -5vh;
-  margin-left: 40%;
+  margin-left: 39%;
 }
 
-.selec-btn > button{
+.selec-btn  button{
   height: 35px;
   width: 110px;
-  background-color: #feb062;
-  border-radius: 6px;
+  border-radius: 9px;
   margin-left: 10px;
-  font-size: 14px;
+  font-size: 16px;
 }

@@ -16,16 +16,16 @@ export default function App(){
 
   <div className='selec-btn'>
     
-    <Link to='/tod'> <button >Todo</button> </Link>
-    <Link to='/pom'> <button >Pomodoro</button> </Link>
+    <Link to='/todo'> <button >Todo</button> </Link>
+    <Link to='/pomodoro'> <button >Pomodoro</button> </Link>
     
   </div>
 
     <Routes>
       
-      <Route path='/tod' element={<TodoForm  />} />
+      <Route path='/todo' element={<TodoForm  />} />
       
-      <Route path='/pom' element={<Pomodoro />} />
+      <Route path='/pomodoro' element={<Pomodoro />} />
     
     </Routes>
   
