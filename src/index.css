@@ -6,6 +6,7 @@ body {
   color: #feb062;
   background-color: #575151;
 }
+
 .head {
   font-size: 41px;
 }
@@ -42,10 +43,10 @@ body {
 }
 
 .selec-btn > button{
-  height: 30px;
-  width: 100px;
+  height: 35px;
+  width: 110px;
   background-color: #feb062;
-  border-radius: 10px;
+  border-radius: 6px;
   margin-left: 10px;
   font-size: 14px;
 }

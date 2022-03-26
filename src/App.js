@@ -1,22 +1,34 @@
 import TodoForm from './components/TodoForm';
 import './index.css'
 import Pomodoro from './components/Pomodoro'
-import { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,Route,
+  Link
+} from "react-router-dom";
+
 
 export default function App(){
 
-const [tick, setTick] = useState(true);
+// const [tick, setTick] = useState(true);
   return (
-  <>
+  <Router >
+
   <div className='selec-btn'>
-    <button onClick={()=>{setTick(false)}}>Pomodoro</button>
-    <button onClick={()=>{setTick(true)}}>Todo</button>
+    
+    <Link to='/tod'> <button >Todo</button> </Link>
+    <Link to='/pom'> <button >Pomodoro</button> </Link>
+    
   </div>
 
-      {tick && <TodoForm className='form' /> }
-      {!tick && <Pomodoro /> }
-
+    <Routes>
+      
+      <Route path='/tod' element={<TodoForm  />} />
+      
+      <Route path='/pom' element={<Pomodoro />} />
+    
+    </Routes>
   
-  </>
+  </Router>
   );
 }
