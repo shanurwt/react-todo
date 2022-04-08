@@ -24,13 +24,13 @@
 
 ### Todo:
 
-![todo1](./pubic/assets/todo1.png)
-![todo2](./pubic/assets/todo2.png)
+![todo1](https://github.com/shanurwt/react-todo/blob/main/public/assets/todo1.png)
+![todo2](https://github.com/shanurwt/react-todo/blob/main/public/assets/todo2.png)
 
 ---
 
 ### Pomo:
 
-![pomo1](./pubic/assets/pomo1.png)
-![pomo2](./pubic/assets/pomo2.png)
-![pomo3](./pubic/assets/pomo3.png)
+![pomo1](https://github.com/shanurwt/react-todo/blob/main/public/assets/pomo1.png)
+![pomo2](https://github.com/shanurwt/react-todo/blob/main/public/assets/pomo2.png)
+![pomo3](https://github.com/shanurwt/react-todo/blob/main/public/assets/pomo3.png)
