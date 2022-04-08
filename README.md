@@ -6,6 +6,8 @@
 
 ### 2.Pomodoro
 
+---
+
 ### Libraries used:
 
 ### 1. [GSAP](https://greensock.com/react/) (GreenSock) - v3.9 - Professional-grade JavaScript animation for the modern web
