@@ -18,6 +18,8 @@
 
 ### 4.[React-Circular-Progress-Bar](https://www.npmjs.com/package/react-circular-progressbar)- v2.0 - Progress indication of timer
 
+### 5. Context Api used for state management.
+
 ---
 
 ### You can check the demo [here](https://pomotodoapp.netlify.app/).
