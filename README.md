@@ -24,6 +24,15 @@
 
 ### You can check the demo [here](https://pomotodoapp.netlify.app/).
 
+--- 
+
+### Future Work:
+
+- [ ] Add Authentication
+- [ ] Add Theme (Dark and Light)
+- [ ] Add Redux
+
+
 ### Demo Pics:
 
 ### Todo:
@@ -32,6 +41,7 @@
 ![todo2](https://github.com/shanurwt/react-todo/blob/main/public/assets/todo2.png)
 
 ---
+
 
 ### Pomo:
 
